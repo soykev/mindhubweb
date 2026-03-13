@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Metodología — MindHub",
+  title: "MindHub",
   description:
     "En MindHub trabajamos sobre 7 pilares que convierten el aprendizaje en impacto. Conoce nuestra metodología única.",
 };
@@ -221,7 +220,6 @@ export default function MetodologiaPage() {
         </section>
       ))}
 
-      <Footer />
     </>
   );
 }

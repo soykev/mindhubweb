@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contacto — MindHub",
+  title: "MindHub",
   description:
     "Contactate con MindHub. Dejanos tus datos y te contactamos para diseñar el programa de capacitación que tu empresa necesita.",
 };

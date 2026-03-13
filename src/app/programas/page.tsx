@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
 
 type ProgramContent = {
   title: string;
@@ -436,7 +435,6 @@ export default function ProgramasPage() {
         accentColorRgb="0,51,204"
         title="Consultanos por nuestros programas"
       />
-      <Footer />
     </>
   );
 }
