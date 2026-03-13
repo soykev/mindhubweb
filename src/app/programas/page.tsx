@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 type ProgramContent = {
   title: string;
@@ -198,26 +199,26 @@ function ProgramSection({ program, index }: Readonly<{ program: Program; index: 
     <motion.section
       id={program.id}
       className={program.bg}
-      style={{ padding: "56px 0", borderBottom: "1px solid #ebebeb"}}
+      style={{ padding: "56px 0", borderBottom: "1px solid #ebebeb" }}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 60px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "52px" }}>
+      <div className="max-w-[1100px] mx-auto px-5 md:px-[60px]">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-[52px]">
           {/* Icon */}
-          <div style={{ flexShrink: 0 }}>
+          <div className="flex justify-center md:block flex-shrink-0 mb-4 md:mb-0">
             <HexIcon type={program.icon} />
           </div>
 
           {/* Content: title + desc + tabs | card */}
-          <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[48px] items-start md:items-center">
             {/* Left: title, description */}
             <div>
               <h2
                 style={{
-                  fontSize: "26px",
+                  fontSize: "clamp(20px, 3vw, 26px)",
                   fontWeight: 800,
                   color: program.accentColor,
                   marginBottom: "12px",
@@ -226,7 +227,7 @@ function ProgramSection({ program, index }: Readonly<{ program: Program; index: 
               >
                 {program.title}
               </h2>
-              <p style={{ fontSize: "14px", color: "#555", lineHeight: 1.7, maxWidth: "340px" }}>
+              <p style={{ fontSize: "14px", color: "#555", lineHeight: 1.7 }}>
                 {program.description}
               </p>
             </div>
@@ -267,7 +268,7 @@ function ProgramSection({ program, index }: Readonly<{ program: Program; index: 
                     background: "#fff",
                     border: "1px solid #e2e2e2",
                     borderRadius: "10px",
-                    padding: "28px 32px",
+                    padding: "24px 20px",
                     minHeight: "140px",
                     boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
                   }}
@@ -406,11 +407,11 @@ export default function ProgramasPage() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "140px 24px" }}
+          style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "80px 24px" }}
         >
           <h1
             style={{
-              fontSize: "clamp(38px, 6vw, 60px)",
+              fontSize: "clamp(28px, 6vw, 60px)",
               fontWeight: 800,
               color: "#ffffff",
               margin: 0,
@@ -435,6 +436,7 @@ export default function ProgramasPage() {
         accentColorRgb="0,51,204"
         title="Consultanos por nuestros programas"
       />
+      <Footer />
     </>
   );
 }

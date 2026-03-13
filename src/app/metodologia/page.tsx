@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Metodología — MindHub",
@@ -116,14 +117,14 @@ export default function MetodologiaPage() {
             zIndex: 1,
             maxWidth: "1280px",
             margin: "0 auto",
-            padding: "80px 80px",
+            padding: "80px 24px",
             textAlign: "center",
           }}
         >
           <h1
             style={{
               color: "#ffffff",
-              fontSize: "3rem",
+              fontSize: "clamp(1.75rem, 5vw, 3rem)",
               fontWeight: 700,
               lineHeight: 1.2,
               marginBottom: "20px",
@@ -153,30 +154,24 @@ export default function MetodologiaPage() {
       {pillars.map((pillar) => (
         <section
           key={pillar.id}
-          style={{
-            background: pillar.bgWhite ? "#ffffff" : "#000000",
-          }}
+          style={{ background: pillar.bgWhite ? "#ffffff" : "#000000" }}
         >
           <div
-            style={{
-              maxWidth: "1280px",
-              margin: "0 auto",
-              padding: "60px 80px",
-              display: "flex",
-              flexDirection: pillar.imgLeft ? "row" : "row-reverse",
-              alignItems: "center",
-              gap: "80px",
-            }}
+            className={`max-w-[1280px] mx-auto px-5 md:px-20 py-10 md:py-[60px] flex flex-col items-center gap-8 md:gap-20 ${
+              pillar.imgLeft ? "md:flex-row" : "md:flex-row-reverse"
+            }`}
           >
             {/* Image */}
-            <div style={{ flexShrink: 0 }}>
+            <div className="flex-shrink-0 w-full md:w-auto flex justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={pillar.img}
                 alt={pillar.imgAlt}
                 style={{
-                  width: "355px",
-                  height: "270px",
+                  width: "100%",
+                  maxWidth: "355px",
+                  height: "auto",
+                  aspectRatio: "355/270",
                   objectFit: "cover",
                   display: "block",
                   borderRadius: "4px",
@@ -185,12 +180,12 @@ export default function MetodologiaPage() {
             </div>
 
             {/* Text */}
-            <div>
+            <div className="w-full md:flex-1 text-center md:text-left">
               {pillar.id % 2 === 1 ? (
                 <h1
                   style={{
                     color: "#FF00FF",
-                    fontSize: "1.75rem",
+                    fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
                     fontWeight: 700,
                     marginBottom: "16px",
                     fontFamily: "var(--font-jakarta), Poppins, sans-serif",
@@ -202,7 +197,7 @@ export default function MetodologiaPage() {
                 <h2
                   style={{
                     color: "#FF00FF",
-                    fontSize: "1.75rem",
+                    fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
                     fontWeight: 700,
                     marginBottom: "16px",
                     fontFamily: "var(--font-jakarta), Poppins, sans-serif",
@@ -216,7 +211,6 @@ export default function MetodologiaPage() {
                   color: pillar.bgWhite ? "#333333" : "#dddddd",
                   fontSize: "0.9rem",
                   lineHeight: 1.75,
-                  maxWidth: "480px",
                   fontFamily: "var(--font-jakarta), Poppins, sans-serif",
                 }}
               >
@@ -227,19 +221,7 @@ export default function MetodologiaPage() {
         </section>
       ))}
 
-      {/* Footer */}
-      <div
-        style={{
-          paddingTop: "40px",
-          paddingBottom: "40px",
-          background: "black",
-          textAlign: "center",
-        }}
-      >
-        <p className="text-sm font-semibold" style={{ color: "#FF00FF" }}>
-          © {new Date().getFullYear()} MindHub
-        </p>
-      </div>
+      <Footer />
     </>
   );
 }

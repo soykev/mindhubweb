@@ -12,7 +12,7 @@ export default function OurStorySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center text-6xl sm:text-7xl font-extrabold mb-16"
+          className="text-center text-3xl sm:text-5xl lg:text-6xl font-extrabold mb-16"
           style={{ color: "#FF00FF" }}
         >
           Nuestra historia

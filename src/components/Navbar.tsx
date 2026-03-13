@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div style={{ maxWidth: "1280px", margin: "0px auto", padding: "0px 20px", marginTop: "20px" }}>
+        <div style={{ maxWidth: "1280px", margin: "0px auto", marginTop: "20px" }}>
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center ">
@@ -75,7 +75,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="fixed top-20 left-0 right-0 z-40 bg-white border-b border-gray-100 md:hidden">
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "16px 80px" }} className="flex flex-col gap-1">
+          <div className="max-w-[1280px] mx-auto px-5 sm:px-10 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
