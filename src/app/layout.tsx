@@ -11,12 +11,12 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "MindHub — Talento para un mundo que evoluciona",
+  title: "MindHub",
   description:
     "Diseñamos programas de upskilling, reskilling y para nuevos ingresantes de empresas, gobiernos y organizaciones que buscan desarrollar talento en tecnología e inteligencia artificial.",
   keywords: ["upskilling", "reskilling", "talento", "tecnología", "IA", "capacitación"],
   openGraph: {
-    title: "MindHub — Talento para un mundo que evoluciona",
+    title: "MindHub",
     description: "Preparamos talento para un mundo que evoluciona más rápido que nunca.",
     type: "website",
   },

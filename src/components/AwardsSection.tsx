@@ -6,8 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Award {
   id: number;
   title: string;
-  subtitle: string;
-  highlight: string;
   image: string;
 }
 
@@ -15,23 +13,17 @@ const awards: Award[] = [
   {
     id: 1,
     title: "Premio Sadosky de Oro",
-    subtitle: "El máximo galardón de la industria del software en Argentina",
-    highlight: "¡Ganamos el máximo galardón de la industria del software en Argentina!",
-    image: "/Recurso-13.png",
+    image: "/Recurso 54.png",
   },
   {
     id: 2,
-    title: "Premio a la Innovación Educativa",
-    subtitle: "Reconocimiento por transformar la capacitación tecnológica en LATAM",
-    highlight: "¡Reconocidos por transformar la educación tech en toda Latinoamérica!",
-    image: "/Recurso-13.png",
+    title: "Premio BA",
+    image: "/Recurso 55.png",
   },
   {
     id: 3,
-    title: "Top EdTech LATAM 2024",
-    subtitle: "Clasificados entre las mejores plataformas de educación tecnológica",
-    highlight: "¡Entre las 10 mejores EdTech de América Latina!",
-    image: "/Recurso-13.png",
+    title: "Top EdTech LATAM",
+    image: "/Recurso 58.png",
   },
 ];
 
@@ -77,23 +69,105 @@ export default function AwardsSection() {
           style={{ backgroundImage: `url(${award.image})` }}
         />
 
-        {/* Decoración trofeo (SVG outline) */}
-        <div
-          className="absolute right-0 top-0 h-full flex items-center pointer-events-none select-none"
-          style={{ width: "280px", opacity: 0.18 }}
+        {/* Decoración trofeo SVG neón */}
+        <svg
           aria-hidden="true"
+          viewBox="0 0 300 380"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
+          style={{ width: "300px", opacity: 0.28 }}
         >
-          <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            <path
-              d="M100 10 C60 10 30 40 30 80 C30 115 55 145 90 155 L90 195 L65 210 L65 225 L135 225 L135 210 L110 195 L110 155 C145 145 170 115 170 80 C170 40 140 10 100 10Z"
-              stroke="white" strokeWidth="4" fill="none"
-            />
-            <path d="M30 80 C15 75 5 60 5 45 C5 30 18 20 30 25 L30 80Z" stroke="white" strokeWidth="3" fill="none" />
-            <path d="M170 80 C185 75 195 60 195 45 C195 30 182 20 170 25 L170 80Z" stroke="white" strokeWidth="3" fill="none" />
-            <rect x="55" y="225" width="90" height="14" rx="4" stroke="white" strokeWidth="3" fill="none" />
-            <rect x="45" y="239" width="110" height="10" rx="4" stroke="white" strokeWidth="3" fill="none" />
-          </svg>
-        </div>
+          <defs>
+            <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="glow-strong" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="7" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Cuerpo principal de la copa */}
+          <path
+            d="M60 30 L240 30 L220 160 C210 210 170 240 150 250 C130 240 90 210 80 160 Z"
+            stroke="#cc77ff" strokeWidth="2.5" fill="none" filter="url(#glow)"
+          />
+          {/* Borde interior copa */}
+          <path
+            d="M80 40 L220 40 L202 155 C193 200 165 226 150 234 C135 226 107 200 98 155 Z"
+            stroke="#aa44ff" strokeWidth="1.2" fill="none" filter="url(#glow)"
+          />
+
+          {/* Asa izquierda */}
+          <path
+            d="M60 30 C20 30 5 65 5 95 C5 125 25 148 60 148"
+            stroke="#cc77ff" strokeWidth="2.5" fill="none" filter="url(#glow)"
+          />
+          <path
+            d="M60 50 C28 50 18 72 18 95 C18 118 32 135 60 135"
+            stroke="#aa44ff" strokeWidth="1.2" fill="none" filter="url(#glow)"
+          />
+
+          {/* Asa derecha */}
+          <path
+            d="M240 30 C280 30 295 65 295 95 C295 125 275 148 240 148"
+            stroke="#cc77ff" strokeWidth="2.5" fill="none" filter="url(#glow)"
+          />
+          <path
+            d="M240 50 C272 50 282 72 282 95 C282 118 268 135 240 135"
+            stroke="#aa44ff" strokeWidth="1.2" fill="none" filter="url(#glow)"
+          />
+
+          {/* Cuello / tallo */}
+          <path
+            d="M150 250 L150 295"
+            stroke="#cc77ff" strokeWidth="2.5" filter="url(#glow)"
+          />
+          <line x1="130" y1="250" x2="128" y2="295" stroke="#aa44ff" strokeWidth="1.2" filter="url(#glow)" />
+          <line x1="170" y1="250" x2="172" y2="295" stroke="#aa44ff" strokeWidth="1.2" filter="url(#glow)" />
+
+          {/* Base superior */}
+          <rect x="100" y="295" width="100" height="18" rx="5" stroke="#cc77ff" strokeWidth="2.5" fill="none" filter="url(#glow)" />
+          {/* Base inferior */}
+          <rect x="82" y="313" width="136" height="16" rx="5" stroke="#cc77ff" strokeWidth="2.5" fill="none" filter="url(#glow)" />
+
+          {/* Líneas geométricas internas (malla) */}
+          <line x1="150" y1="45" x2="80" y2="40" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="150" y1="45" x2="220" y2="40" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="150" y1="45" x2="100" y2="130" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="150" y1="45" x2="200" y2="130" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="100" y1="130" x2="80" y2="40" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="200" y1="130" x2="220" y2="40" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="100" y1="130" x2="150" y2="230" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="200" y1="130" x2="150" y2="230" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+          <line x1="100" y1="130" x2="200" y2="130" stroke="#9933ff" strokeWidth="0.8" opacity="0.6" filter="url(#glow)" />
+
+          {/* Nodos brillantes */}
+          <circle cx="150" cy="45" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="80" cy="40" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="220" cy="40" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="100" cy="130" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="200" cy="130" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="150" cy="230" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="60" cy="90" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="240" cy="90" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+          <circle cx="150" cy="250" r="3.5" fill="#ffffff" filter="url(#glow-strong)" opacity="0.9" />
+
+          {/* Nodos pequeños adicionales */}
+          <circle cx="95" cy="80" r="2" fill="#dd99ff" filter="url(#glow)" opacity="0.7" />
+          <circle cx="205" cy="80" r="2" fill="#dd99ff" filter="url(#glow)" opacity="0.7" />
+          <circle cx="120" cy="170" r="2" fill="#dd99ff" filter="url(#glow)" opacity="0.7" />
+          <circle cx="180" cy="170" r="2" fill="#dd99ff" filter="url(#glow)" opacity="0.7" />
+          <circle cx="150" cy="195" r="2" fill="#dd99ff" filter="url(#glow)" opacity="0.7" />
+        </svg>
 
         {/* Flecha izquierda */}
         <button
@@ -129,57 +203,16 @@ export default function AwardsSection() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-10 px-16 sm:px-24 py-10"
+            className="relative z-10 flex items-center justify-center px-16 sm:px-24 py-10"
             style={{ minHeight: "440px" }}
           >
-            {/* Texto */}
-            <div className="flex-1 max-w-sm text-center md:text-left">
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                {award.title}
-              </h3>
-              <p className="text-white/80 italic text-base mb-4">
-                {award.subtitle}
-              </p>
-              <div className="w-16 h-px mb-4 md:mx-0 mx-auto" style={{ background: "rgba(255,255,255,0.3)" }} />
-              <p className="italic font-bold text-base leading-snug" style={{ color: "#FF00FF" }}>
-                {award.highlight}
-              </p>
-            </div>
-
-            {/* Mockup de teléfono con imagen */}
-            <div className="relative flex-shrink-0" style={{ width: "200px" }}>
-              {/* Marco del teléfono */}
-              <div
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
-                style={{
-                  width: "200px",
-                  height: "280px",
-                  border: "6px solid rgba(255,255,255,0.85)",
-                  background: "#111",
-                }}
-              >
-                {/* Notch */}
-                <div
-                  className="absolute top-0 left-1/2 -translate-x-1/2 z-10 rounded-b-xl"
-                  style={{ width: "60px", height: "10px", background: "rgba(255,255,255,0.85)" }}
-                />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={award.image}
-                  alt={award.title}
-                  className="w-full h-full object-cover"
-                />
-                {/* Botón like */}
-                <div
-                  className="absolute bottom-3 right-3 w-9 h-9 rounded-full flex items-center justify-center shadow-lg"
-                  style={{ background: "#e0245e" }}
-                >
-                  <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={award.image}
+              alt={award.title}
+              className="max-h-96 w-auto object-contain drop-shadow-2xl"
+              style={{ maxWidth: "100%" }}
+            />
           </motion.div>
         </AnimatePresence>
 
