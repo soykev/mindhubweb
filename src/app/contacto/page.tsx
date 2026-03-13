@@ -96,7 +96,7 @@ export default function ContactoPage() {
         </svg>
 
         {/* Text */}
-        <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px" }}>
+        <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "140px 24px" }}>
           <h1
             style={{
               fontSize: isMobile ? "28px" : "clamp(32px, 5vw, 48px)",
