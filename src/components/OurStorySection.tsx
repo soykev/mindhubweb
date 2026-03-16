@@ -13,7 +13,7 @@ export default function OurStorySection() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center text-3xl sm:text-5xl lg:text-6xl font-extrabold mb-16"
-          style={{ color: "#FF00FF" }}
+          style={{ color: "#FF00FF", marginBottom: "40px" }}
         >
           Nuestra historia
         </motion.h2>
@@ -26,9 +26,14 @@ export default function OurStorySection() {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="w-full rounded-2xl overflow-hidden shadow-lg"
           style={{ aspectRatio: "16/9", background: "#0d0d0d" }}
+
         >
-          {/* Reemplazá VIDEO_URL con tu enlace de YouTube/Vimeo embed */}
-          {/* Ejemplo: src="https://www.youtube.com/embed/TU_ID" */}
+          <video
+            src="/video pag web.mp4"
+            controls
+            playsInline
+            className="w-full h-full object-cover"
+          />
         </motion.div>
       </div>
     </section>

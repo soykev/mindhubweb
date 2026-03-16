@@ -14,7 +14,7 @@ const pillars = [
     title: "Aula invertida",
     description:
       "Partimos de casos reales y, desde esa experiencia, abrimos paso al contenido y las herramientas que dan sentido a la práctica.",
-    img: `${BASE}/Firefly_Lentes%20de%20realidad%20virtual%2c%20algo%20futuristas%2c%20pero%20elegantes%2c%20de%20color%20blancos%2c%20estos%20%20125128.jpg?width=355&height=270`,
+    img: `/Firefly_Lentes de realidad virtual, algo futuristas, pero elegantes, de color blancos, estos  125128.jpg`,
     imgAlt: "Lentes de realidad virtual para Aula invertida",
     bgWhite: true,
     imgLeft: true,
@@ -24,7 +24,7 @@ const pillars = [
     title: "Equipos académicos en vivo",
     description:
       "Clases interactivas donde los participantes aprenden junto a expertos y compañeros, en un entorno dinámico y colaborativo.",
-    img: `${BASE}/Firefly_Lentes%20de%20realidad%20virtual%2c%20algo%20futuristas%2c%20pero%20elegantes%2c%20de%20color%20blancos%2c%20estos%20%20517430.jpg?width=355&height=270`,
+    img: `/Firefly_Lentes de realidad virtual, algo futuristas, pero elegantes, de color blancos, estos  517430.jpg`,
     imgAlt: "Equipos académicos en vivo",
     bgWhite: false,
     imgLeft: false,
@@ -34,7 +34,7 @@ const pillars = [
     title: "Plataforma propia",
     description:
       "Tecnología propia potenciada con IA para personalizar la experiencia, dar seguimiento y medir el progreso de cada participante.",
-    img: `${BASE}/Firefly_fondo%20tech%20color%20purpura%2c%20con%20estilo%20futurista%20y%20elegante%20computadora%20con%20codigo%20html%20517430.jpg?width=355&height=270`,
+    img: `/Firefly_fondo tech color purpura, con estilo futurista y elegante computadora con codigo html 517430.jpg`,
     imgAlt: "Plataforma tecnológica propia",
     bgWhite: true,
     imgLeft: true,
@@ -44,7 +44,7 @@ const pillars = [
     title: "Entornos de trabajo real",
     description:
       "Recreamos escenarios reales de proyectos corporativos para que los alumnos aprendan haciendo y estén listos para integrarse a equipos desde el primer día.",
-    img: `${BASE}/Firefly_fondo%20tech%20color%20purpura%2c%20con%20estilo%20futurista%20y%20elegante%20computadora%20con%20codigo%20html%20125128.jpg?width=355&height=270`,
+    img: `/Firefly_fondo tech color purpura, con estilo futurista y elegante computadora con codigo html 125128.jpg`,
     imgAlt: "Entornos de trabajo real",
     bgWhite: false,
     imgLeft: false,
@@ -54,7 +54,7 @@ const pillars = [
     title: "Metodologías Ágiles",
     description:
       "Aplicamos prácticas modernas de gestión de proyectos para que los alumnos desarrollen soluciones rápidas, colaborativas y orientadas a resultados.",
-    img: `${BASE}/Firefly_fondo%20tech%20con%20codigo%20html%20color%20purpura%2c%20con%20estilo%20futurista%20oficina%20con%20metodologi%20517430.jpg?width=355&height=270`,
+    img: `/Firefly_fondo tech con codigo html color purpura, con estilo futurista oficina con metodologi 517430.jpg`,
     imgAlt: "Metodologías Ágiles",
     bgWhite: true,
     imgLeft: true,
@@ -64,7 +64,7 @@ const pillars = [
     title: "Habilidades Profesionales",
     description:
       "Más allá de las habilidades técnicas, nuestras formaciones fomentan habilidades como la comunicación, trabajo en equipo y pensamiento crítico, competencias clave para destacar en cualquier organización.",
-    img: "https://info.mindhubweb.com/hs-fs/hubfs/Firefly_fondo%20tech%20con%20codigo%20html%20color%20purpura%2c%20con%20estilo%20futurista%20oficina%20con%20metodologi%20262872.jpg?width=355&height=270",
+    img: "https://info.mindhubweb.com/hs-fs/hubfs/Firefly_fondo%20tech%20con%20codigo%20html%20color%20purpura%2c%20con%20estilo%20futurista%20oficina%20con%20metodologi%20262872.jpg?",
     imgAlt: "Habilidades Profesionales",
     bgWhite: false,
     imgLeft: false,
@@ -74,7 +74,7 @@ const pillars = [
     title: "Apoyo Asincrónico",
     description:
       "Materiales y recursos disponibles en todo momento para reforzar el aprendizaje y permitir que cada participante avance a su propio ritmo.",
-    img: `${BASE}/Firefly_fondo%20tech%20con%20codigo%20html%20color%20purpura%2c%20con%20estilo%20futurista%20oficina%20con%20metodologi%20795424.jpg?width=355&height=270`,
+    img: `/Firefly_fondo tech con codigo html color purpura, con estilo futurista oficina con metodologi 795424.jpg`,
     imgAlt: "Apoyo Asincrónico",
     bgWhite: true,
     imgLeft: true,
@@ -153,7 +153,7 @@ export default function MetodologiaPage() {
       {pillars.map((pillar) => (
         <section
           key={pillar.id}
-          style={{ background: pillar.bgWhite ? "#ffffff" : "#000000" }}
+          style={{ background: pillar.bgWhite ? "#ffffff" : "#000000", padding: "80px clamp(1.25rem, 5vw, 4rem)", display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
           <div
             style={{ paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}
