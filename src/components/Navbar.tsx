@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div style={{ maxWidth: "1280px", margin: "0px auto", marginTop: "20px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", marginTop: "20px", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center ">
@@ -74,16 +74,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed top-20 left-0 right-0 z-40 bg-white border-b border-gray-100 md:hidden">
-          <div className="max-w-[1280px] mx-auto px-5 sm:px-10 flex flex-col gap-1">
+        <div className="fixed top-[100px] left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-xl md:hidden">
+          <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }} className="py-2 flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-2 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 rounded-lg transition-all"
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#FF00FF")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                className="flex items-center px-3 py-4 text-sm font-semibold text-gray-700 hover:text-[#FF00FF] hover:bg-gray-50 rounded-xl border-b border-gray-100 last:border-b-0 transition-all duration-200"
               >
                 {link.label}
               </Link>

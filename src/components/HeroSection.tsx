@@ -27,8 +27,8 @@ export default function HeroSection() {
   return (
     <section id="inicio" className="bg-white pt-20">
       <div
-        style={{ maxWidth: "1280px", margin: "0 auto", paddingTop: "140px", paddingBottom: "140px" }}
-        className="flex flex-col md:flex-row items-center px-5 pt-12 pb-10 md:pt-20 md:pb-0"
+        style={{ maxWidth: "1200px", margin: "0 auto", paddingTop: "140px", paddingBottom: "140px", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}
+        className="flex flex-col md:flex-row items-center pt-12 pb-10 md:pt-20 md:pb-0"
       >
         {/* Left: Text content */}
         <motion.div

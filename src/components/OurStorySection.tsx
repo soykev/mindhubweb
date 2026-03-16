@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function OurStorySection() {
   return (
     <section className="bg-white py-16">
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 20px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

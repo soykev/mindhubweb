@@ -45,7 +45,7 @@ const logos = [
 export default function TrustedBySection() {
   return (
     <section className="bg-white pt-16 pb-12" style={{ paddingTop: "80px", paddingBottom: "40px" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
         {/* Título */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

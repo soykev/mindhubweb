@@ -114,9 +114,9 @@ export default function MetodologiaPage() {
           style={{
             position: "relative",
             zIndex: 1,
-            maxWidth: "1280px",
+            maxWidth: "1200px",
             margin: "0 auto",
-            padding: "80px 24px",
+            padding: "80px clamp(1.25rem, 5vw, 4rem)",
             textAlign: "center",
           }}
         >
@@ -156,7 +156,8 @@ export default function MetodologiaPage() {
           style={{ background: pillar.bgWhite ? "#ffffff" : "#000000" }}
         >
           <div
-            className={`max-w-[1280px] mx-auto px-5 md:px-20 py-10 md:py-[60px] flex flex-col items-center gap-8 md:gap-20 ${
+            style={{ paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}
+            className={`max-w-[1200px] mx-auto py-10 md:py-[60px] flex flex-col items-center gap-8 md:gap-20 ${
               pillar.imgLeft ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >

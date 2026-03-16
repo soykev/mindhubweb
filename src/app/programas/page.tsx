@@ -198,13 +198,13 @@ function ProgramSection({ program, index }: Readonly<{ program: Program; index: 
     <motion.section
       id={program.id}
       className={program.bg}
-      style={{ padding: "56px 0", borderBottom: "1px solid #ebebeb" }}
+      style={{ padding: "72px 0", borderBottom: "1px solid #ebebeb" }}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
     >
-      <div className="max-w-[1100px] mx-auto px-5 md:px-[60px]">
+      <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
         <div className="flex flex-col md:flex-row md:items-center md:gap-[52px]">
           {/* Icon */}
           <div className="flex justify-center md:block flex-shrink-0 mb-4 md:mb-0">

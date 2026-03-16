@@ -107,8 +107,9 @@ export default function ContactForm({
       id={sectionId}
       style={{ background: "#ffffff", padding: isMobile ? "40px 0 60px" : "52px 0 80px" }}
     >
+      <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
       {title && (
-        <div style={{ textAlign: "center", padding: isMobile ? "0 20px 32px" : "0 60px 40px" }}>
+        <div style={{ textAlign: "center", paddingBottom: isMobile ? "32px" : "40px" }}>
           <h2
             style={{
               fontSize: isMobile ? "24px" : "clamp(28px, 4vw, 42px)",
@@ -123,7 +124,7 @@ export default function ContactForm({
           </h2>
         </div>
       )}
-      <div style={{ padding: isMobile ? "0 20px" : "0 60px" }}>
+      <div>
         {status === "success" ? (
           <div style={{ textAlign: "center", padding: "64px 24px" }}>
             <div
@@ -212,6 +213,7 @@ export default function ContactForm({
             </div>
           </form>
         )}
+      </div>
       </div>
     </section>
   );

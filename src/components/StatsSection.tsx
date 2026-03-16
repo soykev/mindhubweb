@@ -88,7 +88,7 @@ export default function StatsSection() {
 
   return (
     <section id="estadisticas" ref={ref} className="bg-white py-20">
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 20px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
