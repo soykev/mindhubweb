@@ -28,11 +28,12 @@ export default function OurStorySection() {
           style={{ aspectRatio: "16/9", background: "#0d0d0d" }}
 
         >
-          <video
-            src="/video pag web.mp4"
-            controls
-            playsInline
-            className="w-full h-full object-cover"
+          <iframe
+            src="https://www.youtube.com/embed/cEOkyY-fZEs"
+            title="Nuestra historia"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
           />
         </motion.div>
       </div>
