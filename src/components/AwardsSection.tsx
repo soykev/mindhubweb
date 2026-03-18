@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Award {
@@ -13,17 +13,27 @@ const awards: Award[] = [
   {
     id: 1,
     title: "Premio Sadosky de Oro",
-    image: "/Recurso 54.png",
+    image: "/Recurso-54.png",
   },
   {
     id: 2,
-    title: "Premio BA",
-    image: "/Recurso 55.png",
+    title: "5 estrellas en Google Play",
+    image: "/Recurso-61.png",
   },
   {
     id: 3,
-    title: "Top EdTech LATAM",
-    image: "/Recurso 58.png",
+    title: "Premio BA",
+    image: "/Recurso-55.png",
+  },
+  {
+    id: 4,
+    title: "Premios naves",
+    image: "/Recurso-58.png",
+  },
+  {
+    id: 5,
+    title: "Premio HSBC",
+    image: "/Recurso-59.png",
   },
 ];
 
@@ -36,16 +46,35 @@ const variants = {
 export default function AwardsSection() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const resetInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
 
   const prev = () => {
+    resetInterval();
     setDirection(-1);
     setIndex((i) => (i - 1 + awards.length) % awards.length);
   };
 
   const next = () => {
+    resetInterval();
     setDirection(1);
     setIndex((i) => (i + 1) % awards.length);
   };
+
+  useEffect(() => {
+    if (paused) return;
+    intervalRef.current = setInterval(() => {
+      setDirection(1);
+      setIndex((i) => (i + 1) % awards.length);
+    }, 5000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [paused, index]);
 
   const award = awards[index];
 
@@ -62,7 +91,14 @@ export default function AwardsSection() {
       </div>
 
       {/* Carrusel */}
-      <div className="relative w-full overflow-hidden" style={{ minHeight: "440px" }}>
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ minHeight: "440px" }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
+      >
         {/* Fondo con imagen difuminada */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10"
@@ -221,7 +257,7 @@ export default function AwardsSection() {
           {awards.map((a, i) => (
             <button
               key={a.id}
-              onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
+              onClick={() => { resetInterval(); setDirection(i > index ? 1 : -1); setIndex(i); }}
               className="rounded-full transition-all"
               style={{
                 width: i === index ? "20px" : "8px",
