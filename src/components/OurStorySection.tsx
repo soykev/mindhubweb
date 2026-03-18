@@ -29,7 +29,7 @@ export default function OurStorySection() {
 
         >
           <iframe
-            src="https://www.youtube.com/embed/cEOkyY-fZEs"
+            src="https://www.youtube.com/embed/UmROho-ztWg"
             title="Nuestra historia"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

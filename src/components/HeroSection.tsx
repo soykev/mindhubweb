@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -57,13 +55,15 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div variants={itemVariants}>
-            <Link
-              href="/contacto"
+            <a
+              href="https://calendar.app.google/43knwPD2YmVzg1KP6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center rounded-full text-white font-semibold text-base transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
               style={{ backgroundColor: "#FF00FF", padding: "12px 24px" }}
             >
               Agendar una llamada
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
 
