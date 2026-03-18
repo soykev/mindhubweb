@@ -81,7 +81,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center px-3 py-4 text-sm font-semibold text-gray-700 hover:text-[#FF00FF] hover:bg-gray-50 rounded-xl border-b border-gray-100 last:border-b-0 transition-all duration-200"
+                className="flex items-center px-3 py-8 text-lg font-semibold text-gray-700 hover:text-[#FF00FF] hover:bg-gray-50 rounded-xl border-b border-gray-100 last:border-b-0 transition-all duration-200"
               >
                 {link.label}
               </Link>
