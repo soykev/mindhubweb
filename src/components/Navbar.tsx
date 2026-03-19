@@ -51,9 +51,15 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-gray-800 transition-colors duration-200"
+                  className="navbar-text text-sm text-gray-800 transition-colors duration-200"
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#FF00FF")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                    fontStyle: "normal",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
                 >
                   {link.label}
                 </Link>
@@ -75,13 +81,16 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="fixed top-[100px] left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-xl md:hidden">
-          <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }} className="py-2 flex flex-col">
+          <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)", fontSize: "1rem",
+                    fontWeight: 500,
+                    fontStyle: "normal",
+                    fontFamily: "Poppins, sans-serif" }} className="py-2 flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center px-3 py-8 text-lg font-semibold text-gray-700 hover:text-[#FF00FF] hover:bg-gray-50 rounded-xl border-b border-gray-100 last:border-b-0 transition-all duration-200"
+                className="navbar-text flex items-center px-3 py-8 text-lg text-gray-700 hover:text-[#FF00FF] hover:bg-gray-50 rounded-xl border-b border-gray-100 last:border-b-0 transition-all duration-200"
               >
                 {link.label}
               </Link>

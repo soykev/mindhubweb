@@ -87,7 +87,7 @@ export default function StatsSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="estadisticas" ref={ref} className="bg-white py-20">
+    <section id="estadisticas" ref={ref} className="bg-white py-0" style={{ paddingTop: "0px", paddingBottom: "20px" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
         {/* Eyebrow */}
         <motion.p

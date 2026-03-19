@@ -91,13 +91,13 @@ export default function MetodologiaPage() {
             "linear-gradient(135deg, #1a0040 0%, #2d0070 25%, #4e00b3 55%, #6b00cc 75%, #1a0040 100%)",
           position: "relative",
           overflow: "hidden",
-          paddingTop: "80px",
+          paddingTop: "120px",
         }}
       >
         {/* Network nodes overlay image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://info.mindhubweb.com/hs-fs/hubfs/AI-Generated%20Media/Images/WEB%20MH/Recurso%209.png?width=1280&height=545&name=Recurso%209.png"
+          src="/metodologia-fondo.png"
           alt=""
           aria-hidden="true"
           style={{
@@ -106,7 +106,7 @@ export default function MetodologiaPage() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: 0.45,
+            // opacity: 0.45,
             pointerEvents: "none",
           }}
         />
@@ -125,9 +125,10 @@ export default function MetodologiaPage() {
               color: "#ffffff",
               fontSize: "clamp(1.75rem, 5vw, 3rem)",
               fontWeight: 700,
+              fontStyle: "normal",
               lineHeight: 1.2,
               marginBottom: "20px",
-              fontFamily: "var(--font-jakarta), Poppins, sans-serif",
+              fontFamily: "Poppins, var(--font-poppins), sans-serif",
             }}
           >
             Una metodología única que transforma empresas
@@ -135,11 +136,12 @@ export default function MetodologiaPage() {
           <p
             style={{
               color: "rgba(255,255,255,0.85)",
-              fontSize: "0.9rem",
               lineHeight: 1.7,
-              maxWidth: "680px",
               margin: "0 auto",
-              fontFamily: "var(--font-jakarta), Poppins, sans-serif",
+              fontSize: "1rem",
+                    fontWeight: 500,
+                    fontStyle: "normal",
+                    fontFamily: "Poppins, sans-serif",
             }}
           >
             En MindHub entendemos que la formación tecnológica solo funciona cuando es práctica
@@ -181,37 +183,48 @@ export default function MetodologiaPage() {
 
             {/* Text */}
             <div className="w-full md:flex-1 text-center md:text-left">
-              {pillar.id % 2 === 1 ? (
-                <h1
-                  style={{
-                    color: "#FF00FF",
-                    fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
-                    fontWeight: 700,
-                    marginBottom: "16px",
-                    fontFamily: "var(--font-jakarta), Poppins, sans-serif",
-                  }}
-                >
-                  {pillar.title}
-                </h1>
-              ) : (
-                <h2
-                  style={{
-                    color: "#FF00FF",
-                    fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
-                    fontWeight: 700,
-                    marginBottom: "16px",
-                    fontFamily: "var(--font-jakarta), Poppins, sans-serif",
-                  }}
-                >
-                  {pillar.title}
-                </h2>
-              )}
+              {/*
+                Alterna color del título: azul (impares), rosa (pares).
+                Ejemplo: 1 azul, 2 rosa, 3 azul...
+              */}
+              {(() => {
+                const titleColor = pillar.id % 2 === 1 ? "#0A1FD7" : "#FF00FF";
+
+                return pillar.id % 2 === 1 ? (
+                  <h1
+                    style={{
+                      color: titleColor,
+                      fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
+                      fontWeight: 700,
+                      fontStyle: "normal",
+                      marginBottom: "16px",
+                      fontFamily: "Poppins, var(--font-poppins), sans-serif",
+                    }}
+                  >
+                    {pillar.title}
+                  </h1>
+                ) : (
+                  <h2
+                    style={{
+                      color: titleColor,
+                      fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
+                      fontWeight: 700,
+                      marginBottom: "16px",
+                      fontFamily: "Poppins, sans-serif",
+                    }}
+                  >
+                    {pillar.title}
+                  </h2>
+                );
+              })()}
               <p
                 style={{
                   color: pillar.bgWhite ? "#333333" : "#dddddd",
-                  fontSize: "0.9rem",
+                  fontSize: "1rem",
+                  fontWeight: 500,
+                  fontStyle: "normal",
                   lineHeight: 1.75,
-                  fontFamily: "var(--font-jakarta), Poppins, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 {pillar.description}

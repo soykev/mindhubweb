@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const jakarta = Plus_Jakarta_Sans({
+
+
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-jakarta",
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -28,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={jakarta.variable} suppressHydrationWarning>
+    <html lang="es" className={` ${poppins.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] antialiased">
         <Navbar />
         <main>{children}</main>

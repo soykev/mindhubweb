@@ -18,7 +18,7 @@
   --color-azul-light: #4040ff;
 
   /* Fonts */
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Poppins", var(--font-poppins), sans-serif;
 
   /* Radius */
   --radius-xl: 1rem;
@@ -40,10 +40,24 @@ html {
 body {
   background-color: #ffffff;
   color: #111111;
-  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-family: "Poppins", var(--font-poppins), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Poppins", var(--font-poppins), sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.navbar-text {
+  font-family: "Poppins", var(--font-poppins), sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
 }
 
 /* Gradient text utility */

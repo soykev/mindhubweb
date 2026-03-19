@@ -316,7 +316,7 @@ export default function ProgramasPage() {
           justifyContent: "center",
           overflow: "hidden",
           background: "linear-gradient(135deg, #0d001a 0%, #12003a 25%, #0a0055 55%, #0d0030 80%, #080018 100%)",
-          paddingTop: "80px",
+          paddingTop: "120px",
         }}
       >
         {/* Background photo */}
@@ -411,7 +411,9 @@ export default function ProgramasPage() {
           <h1
             style={{
               fontSize: "clamp(28px, 6vw, 60px)",
-              fontWeight: 800,
+              fontWeight: 700,
+              fontStyle: "normal",
+              fontFamily: "Poppins, var(--font-poppins), sans-serif",
               color: "#ffffff",
               margin: 0,
               letterSpacing: "-1px",
