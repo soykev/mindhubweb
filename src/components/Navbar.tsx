@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div style={{ maxWidth: "1200px", margin: "0 auto", marginTop: "20px", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", marginTop: "20px", paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)", marginBottom: "20px" }}>
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center ">
