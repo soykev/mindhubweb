@@ -1,10 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { correo, nombre, apellidos, empresa, rol, mensaje } = body;
+    const { correo, nombre, apellidos, empresa, rol, mensaje, sourcePage } = body;
 
     if (!correo || !nombre || !apellidos || !empresa || !rol || !mensaje) {
       return NextResponse.json(
@@ -12,6 +21,20 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+
+    if (
+      !process.env.SMTP_HOST ||
+      !process.env.SMTP_USER ||
+      !process.env.SMTP_PASS
+    ) {
+      return NextResponse.json(
+        { error: "La configuración SMTP no está completa en el servidor." },
+        { status: 500 }
+      );
+    }
+
+    const recipient = process.env.CONTACT_RECIPIENT ?? "Empresas@mindhubweb.com";
+    const pageLabel = typeof sourcePage === "string" ? sourcePage : "/contacto";
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -25,39 +48,39 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"MindHub Web" <${process.env.SMTP_USER}>`,
-      to: "Empresas@mindhubweb.com",
+      to: recipient,
       replyTo: correo,
-      subject: `Nueva consulta de ${nombre} ${apellidos} — ${empresa}`,
+      subject: `Nueva consulta de ${escapeHtml(nombre)} ${escapeHtml(apellidos)} — ${escapeHtml(empresa)}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #f9f9f9; border-radius: 8px;">
-          <h2 style="color: #0000FF; margin-bottom: 24px;">Nueva consulta desde mindhubweb.com/programas</h2>
+          <h2 style="color: #0000FF; margin-bottom: 24px;">Nueva consulta desde mindhubweb.com${escapeHtml(pageLabel)}</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666; width: 40%;">Correo</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${correo}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${escapeHtml(correo)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Nombre</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${nombre}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${escapeHtml(nombre)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Apellidos</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${apellidos}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${escapeHtml(apellidos)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Empresa</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${empresa}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${escapeHtml(empresa)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Rol en la empresa</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${rol}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${escapeHtml(rol)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; color: #666; vertical-align: top;">Mensaje</td>
-              <td style="padding: 10px 0; font-weight: 600; white-space: pre-wrap;">${mensaje}</td>
+              <td style="padding: 10px 0; font-weight: 600; white-space: pre-wrap;">${escapeHtml(mensaje)}</td>
             </tr>
           </table>
-          <p style="margin-top: 24px; font-size: 12px; color: #999;">Este mensaje fue enviado desde el formulario de contacto en /programas</p>
+          <p style="margin-top: 24px; font-size: 12px; color: #999;">Este mensaje fue enviado desde el formulario de contacto en ${escapeHtml(pageLabel)}</p>
         </div>
       `,
     });

@@ -436,6 +436,7 @@ export default function ProgramasPage() {
         accentColor="#0033cc"
         accentColorRgb="0,51,204"
         title="Consultanos por nuestros programas"
+        sourcePage="/programas"
       />
     </>
   );

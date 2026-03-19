@@ -65,6 +65,7 @@ export default function ContactoPage() {
         sectionId="contacto-form"
         accentColor="#5b00cc"
         accentColorRgb="91,0,204"
+        sourcePage="/contacto"
       />
 
       {/* Footer simple */}

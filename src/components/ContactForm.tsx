@@ -7,6 +7,7 @@ interface ContactFormProps {
   accentColor?: string;
   accentColorRgb?: string;
   title?: string;
+  sourcePage?: string;
 }
 
 const labelStyle: React.CSSProperties = {
@@ -26,6 +27,7 @@ export default function ContactForm({
   accentColor = "#9b30ff",
   accentColorRgb = "155,48,255",
   title,
+  sourcePage = "/contacto",
 }: Readonly<ContactFormProps>) {
   const [formData, setFormData] = useState({
     correo: "",
@@ -57,7 +59,7 @@ export default function ContactForm({
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, sourcePage }),
       });
       if (res.ok) {
         setStatus("success");
@@ -157,17 +159,37 @@ export default function ContactForm({
                 <label style={labelStyle} htmlFor={`${sectionId}-${id}`}>
                   {label} *
                 </label>
-                <input
-                  id={`${sectionId}-${id}`}
-                  name={id}
-                  type={type}
-                  required
-                  value={formData[id]}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField(id)}
-                  onBlur={() => setFocusedField(null)}
-                  style={getFieldStyle(id)}
-                />
+                {id === "mensaje" ? (
+                  <textarea
+                    id={`${sectionId}-${id}`}
+                    name={id}
+                    required
+                    value={formData[id]}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField(id)}
+                    onBlur={() => setFocusedField(null)}
+                    rows={5}
+                    style={{
+                      ...getFieldStyle(id),
+                      minHeight: "120px",
+                      resize: "vertical",
+                      paddingTop: "10px",
+                      paddingBottom: "10px",
+                    }}
+                  />
+                ) : (
+                  <input
+                    id={`${sectionId}-${id}`}
+                    name={id}
+                    type={type}
+                    required
+                    value={formData[id]}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField(id)}
+                    onBlur={() => setFocusedField(null)}
+                    style={getFieldStyle(id)}
+                  />
+                )}
               </div>
             ))}
 
